@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonyLIV</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/sony-vegas.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0; 
+       font-family:  sans-serif;
+    }
+    header{
+        height: 38px;
+        box-shadow: 2px 0px 5px black;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+        background-color: white;
+    }
+    header > .logo{
+        position: absolute;
+        width: 23px;
+        height: 25px;
+        top: 6;
+        left: 45;
+    } 
+    .bar-wrapper{
+        padding: 10px 7px 8px 8px;
+        position: absolute;
+    }
+    .fa-bars{
+        font-size: 20px;
+    }
+    .bar-wrapper:hover{
+        color: white;
+    }
+    .fa-search{
+        position: absolute;
+        right: 10;
+        top: 10;
+    }
+    nav{
+        height: auto;
+        width: 100%;
+        position: absolute;
+        background-color: #2C3335;
+        top: -205px;
+        z-index: 0;
+        transition: all 200ms ease-in;
+        max-height: 80vh;
+        overflow: auto;
+    }
+    ul > li{
+        width: 100%;
+        color: white;
+        height: 40px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+    li > p{
+            margin-left: 10px;
+    }
+    li > img{
+        width: 20px;
+        height: 20px;
+        margin: 10px 10px;
+    }
+    li > p{
+        flex: 2;
+    }
+    .fa-angle-down{
+        position: absolute;
+        right: 12;
+        transition: all 200ms ease-in;
+    }
+    .nested{
+        display: none;
+        border: none;
+        overflow: auto;
+    }
+    .nested > li{
+        padding-left: 60px;
+        font-family: "poppins";
+    }
+</style>
+<body>
+    <header>
+        <span class="bar-wrapper">
+            <i class="fa fa-bars"></i>
+    </span>
+        <img src="https://cdn.one.accedo.tv/files/59778b8923eec6000b50361a" class="logo" alt="" />        
+        <i class="fa fa-search"></i>
+    </header>
+    <nav>
+        <ul>
+            <li><img src="https://www.sonyliv.com/images_static/follow_icon_big.png" alt=""><p>Sign In/ Register</p></li>
+
+            <li onclick=change(this)><img src="https://cdn.one.accedo.tv/files/56307a92e4b084769718d08f" alt=""><p>Shows</p><i class="fas fa-angle-down"></i></li>
+            <ul class="nested">
+                <li>SONY TV SHOWS</li>
+                <li>SAB</li>
+                <li>SONY MARATHI</li>
+                <li>TAMIL</li>
+                <li>TELEGU</li>
+                <li>WEB ORIGINALS</li>
+                <li>ENGLISH TV SHOWS</li>
+                <li>SONY BBC EARTH</li>
+                <li>LIV FOOD</li>
+                <li>LIV KID</li>
+                <li>LIV MUSIC</li>
+                <li>AATH</li>
+                <li>MORE</li>
+            </ul>
+            <li onclick=change(this)><img src="https://cdn.one.accedo.tv/files/562035f3e4b059948d3dd986" alt=""><p>Sports</p><i class="fas fa-angle-down"></i></li>
+            <ul class="nested">
+                <li>All Sports</li>
+                <li>Australian Open 2020</li>
+                <li>Cricket</li>
+                <li>WWE</li>
+                <li>Football</li>
+                <li>Olympic Channel</li>
+                <li>Tennis</li>
+                <li>Basketball</li>
+                <li>Fight Sports</li>
+                <li>Racing</li>
+                <li>eSprots</li>
+                <li>Other Sports</li>
+            </ul>
+
+            <li onclick=change(this)><img src="https://www.sonyliv.com/asset/asset_img_menu_channel" alt=""><p>LIVE TV</p><i class="fas fa-angle-down"></i></li>
+            <ul class="nested">
+                <li>NEWS</li>
+                <li>ENTERTAINMENT</li>
+                <li>MOVIES</li>
+                <li>MUSIC</li>
+                <li>KIDS</li>
+                <li>MORE</li>
+            </ul>
+
+            <li onclick=change(this)><img src="https://cdn.one.accedo.tv/files/56307a69e4b084769718d089" alt=""><p>Movies</p><i class="fas fa-angle-down"></i></li>
+            <ul class="nested">
+                <li>ALL MOVIES</li>
+                <li>HOLLYWOOD BLOCKBUSTERS</li>
+                <li>DRAMA</li>
+                <li>ACTION</li>
+                <li>COMEDY</li>
+                <li>ROMANCE</li>
+                <li>HORROR</li>
+                <li>MARATHI MOVIES</li>
+                <li>TAMIL MOVIES</li>
+                <li>TELUGU MOVIES</li>
+                <li>SHORT FILMS</li>
+            </ul>
+
+            <li><img src="https://www.sonyliv.com/asset/asset_img_menu_channel" alt=""><p>Premium Offerings</p></li>
+        </ul>
+    </nav>
+
+    <script>
+        var bars = document.querySelector(".bar-wrapper");
+
+        var x = document.querySelector("nav");
+        console.log(x.style.top);
+        bars.addEventListener("click",() => {
+            console.log(x.style.top);
+            if(x.style.top === "") {
+                   x.style.top = "38px";
+                   bars.style.backgroundColor = "black";
+                   bars.style.color = "white";
+            }   
+            else if(x.style.top === "38px"){
+                x.style.top = "";
+                bars.style.backgroundColor = "white";
+                bars.style.color = "black";
+                document.querySelector(".nested").style.display = "none";
+            }
+            console.log(x.style.top);
+        }
+    );
+
+    function change(id){
+        if(id.nextElementSibling.style.display === "none"){
+            id.nextElementSibling.style.display = "block";
+            id.childNodes[2].style.transform = "rotate(180deg)";
+        }
+        else{
+            id.nextElementSibling.style.display = "none"
+            id.childNodes[2].style.transform = "rotate(0)";
+        }
+    }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
